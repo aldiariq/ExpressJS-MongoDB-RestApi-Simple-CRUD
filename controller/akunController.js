@@ -4,26 +4,26 @@ const Akun = require("../model/akunModel");
 const bcrypt = require('bcrypt');
 const saltbcrypt = bcrypt.genSaltSync(10);
 
-exports.daftarakun = function(req, res){
-    // const {username, password} = req.body;
-    // //definisi inputan akun
+exports.daftarakun = async function(req, res){
+    const hashpasswordakun = await bcrypt.hash(req.body.password, saltbcrypt);
+
+    //definisi inputan akun
+    let akun = new Akun({
+        username: req.body.username,
+        password: hashpasswordakun
+    });
 
     //menyimpan data ke mongodb
-    bcrypt.hash("aldi", saltbcrypt, function(err, hash){
-        if(err){
-            return next(err);
+    akun.save(function(err){
+        if (err) {
+            return res.status(201).json({
+                STATUS: "GAGAL",
+                KETERANGAN: "Gagal mendaftarkan akun"
+            });
         }
-        
-        let akun = new Akun({
-            username: req.body.username,
-            password: hash
-        });
-
-        akun.save(function(err){
-            if (err) {
-                return next(err);
-            }
-            res.send("Berhasil mendaftarkan akun");
+        return res.status(201).json({
+            STATUS: "BERHASIL",
+            KETERANGAN: "Berhasil mendaftarkan akun"
         });
     });
 }

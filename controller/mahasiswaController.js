@@ -12,9 +12,15 @@ exports.tambahmahasiswa = function(req, res) {
     //menyimpan data ke mongodb
     mahasiswa.save(function(err) {
         if (err) {
-            return next(err);
+            return res.status(201).json({
+                STATUS: "GAGAL",
+                KETERANGAN: "Gagal menyimpan data mahasiswa"
+            });
         }
-        res.send("Berhasil menyimpan data");
+        return res.status(201).json({
+            STATUS: "BERHASIL",
+            KETERANGAN: "Berhasil menyimpan data mahasiswa"
+        });
     });
 };
 
@@ -43,9 +49,15 @@ exports.ubahmahasiswa = function(req, res){
     //$set: req.body berarti meng-set semua key dengan value yang di request
     Mahasiswa.findByIdAndUpdate(req.params.id, {$set: req.body}, function(err, mahasiswa){
         if (err) {
-            return next(err);
+            return res.status(201).json({
+                STATUS: "GAGAL",
+                KETERANGAN: "Gagal mengubah data mahasiswa"
+            });
         }
-        res.send("Berhasil mengubah data mahasiswa");
+        return res.status(201).json({
+            STATUS: "BERHASIL",
+            KETERANGAN: "Berhasil mengubah data mahasiswa"
+        });
     });
 }
 
@@ -53,8 +65,14 @@ exports.hapussatumahasiswa = function(req, res){
     //mencari mahasiswa dengan id tersebut dan menghapusnya
     Mahasiswa.findByIdAndRemove(req.params.id, function(err, mahasiswa){
         if (err) {
-            return next(err);
+            return res.status(201).json({
+                STATUS: "GAGAL",
+                KETERANGAN: "Gagal menghapus data mahasiswa"
+            });
         }
-        res.send("Berhasil menghapus data mahasiswa");
+        return res.status(201).json({
+            STATUS: "BERHASIL",
+            KETERANGAN: "Berhasil menghapus data mahasiswa"
+        });
     });
 }
