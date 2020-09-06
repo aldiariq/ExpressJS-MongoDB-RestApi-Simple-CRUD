@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "3e323ccd-0176-43cf-95ba-dcb4fdaa5d9f",
+		"name": "apicrudMahasiswa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "tambah data mahasiswa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nim\": \"0904\",\n    \"nama\": \"aldi ariq\",\n    \"jurusan\": \"Teknik Informatika\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/tambahmahasiswa",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tambahmahasiswa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tampil semua data mahasiswa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/tampilmahasiswa",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tampilmahasiswa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tampil satu data mahasiswa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/tampilsatumahasiswa/5f54dfb1a07e371f5cdff7ca",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tampilsatumahasiswa",
+						"5f54dfb1a07e371f5cdff7ca"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ubah data mahasiswa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nim\": \"0902\",\n    \"nama\": \"aldi edit\",\n    \"jurusan\": \"Teknik Informatika\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/ubahmahasiswa/5f54dfb1a07e371f5cdff7ca",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ubahmahasiswa",
+						"5f54dfb1a07e371f5cdff7ca"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hapus satu data mahasiswa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/hapussatumahasiswa/5f54dfb1a07e371f5cdff7ca",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"hapussatumahasiswa",
+						"5f54dfb1a07e371f5cdff7ca"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
