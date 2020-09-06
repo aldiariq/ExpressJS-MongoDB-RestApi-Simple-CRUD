@@ -9,8 +9,8 @@ const mahasiswaController = require('../controller/mahasiswaController');
 router.post("/tambahmahasiswa", mahasiswaController.tambahmahasiswa);
 router.get("/tampilmahasiswa", mahasiswaController.tampilmahasiswa);
 router.get("/tampilsatumahasiswa/:id", mahasiswaController.tampilsatumahasiswa)
-router.post("/ubahmahasiswa/:id", mahasiswaController.ubahmahasiswa);
-router.get("/hapussatumahasiswa/:id", mahasiswaController.hapussatumahasiswa);
+router.put("/ubahmahasiswa/:id", mahasiswaController.ubahmahasiswa);
+router.delete("/hapussatumahasiswa/:id", mahasiswaController.hapussatumahasiswa);
 
 //export route mahasiswa
 module.exports = router;
