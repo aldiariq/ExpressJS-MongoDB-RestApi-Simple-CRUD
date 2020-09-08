@@ -10,7 +10,7 @@ const mahasiswaController = require('../controller/mahasiswaController');
 
 //route daftar dan masuk
 router.post("/daftarakun", akunController.daftarakun);
-router.get("/lihatdaftarakun", akunController.lihatdaftarakun);
+router.post("/masuk", akunController.masuk);
 
 //route crud data mahasiswa
 router.post("/tambahmahasiswa", mahasiswaController.tambahmahasiswa);
