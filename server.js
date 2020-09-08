@@ -7,7 +7,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 //inisialisasi dan import route mahasiswa
-const mahasiswaRoute = require("./routes/mahasiswaRoutes");
+const crudRoutes = require("./routes/crudRoutes");
 
 //Koneksi database
 let mongourl = "mongodb://localhost:27017/mahasiswaapi";
@@ -21,7 +21,7 @@ db.on("error", console.error.bind(console, "Koneksi Error"));
 const crudMahasiswa = express();
 crudMahasiswa.use(bodyParser.urlencoded({extended: true}));
 crudMahasiswa.use(bodyParser.json());
-crudMahasiswa.use("/api", mahasiswaRoute);
+crudMahasiswa.use("/api", crudRoutes);
 const port = 3000;
 
 //menjalankan server
