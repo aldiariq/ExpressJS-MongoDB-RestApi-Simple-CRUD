@@ -2,6 +2,9 @@
 const express = require("express");
 const router = express.Router();
 
+//import middleware authentikasi
+const middleware = require("../middleware/middleware");
+
 //inisialisasi controller akun
 const akunController = require('../controller/akunController');
 
@@ -13,11 +16,11 @@ router.post("/daftarakun", akunController.daftarakun);
 router.post("/masuk", akunController.masuk);
 
 //route crud data mahasiswa
-router.post("/tambahmahasiswa", mahasiswaController.tambahmahasiswa);
-router.get("/tampilmahasiswa", mahasiswaController.tampilmahasiswa);
-router.get("/tampilsatumahasiswa/:id", mahasiswaController.tampilsatumahasiswa)
-router.put("/ubahmahasiswa/:id", mahasiswaController.ubahmahasiswa);
-router.delete("/hapussatumahasiswa/:id", mahasiswaController.hapussatumahasiswa);
+router.post("/tambahmahasiswa", middleware, mahasiswaController.tambahmahasiswa);
+router.get("/tampilmahasiswa", middleware, mahasiswaController.tampilmahasiswa);
+router.get("/tampilsatumahasiswa/:id", middleware, mahasiswaController.tampilsatumahasiswa)
+router.put("/ubahmahasiswa/:id", middleware, mahasiswaController.ubahmahasiswa);
+router.delete("/hapussatumahasiswa/:id", middleware, mahasiswaController.hapussatumahasiswa);
 
 //export route crud
 module.exports = router;

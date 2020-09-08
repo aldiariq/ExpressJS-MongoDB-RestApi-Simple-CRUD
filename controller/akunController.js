@@ -5,6 +5,8 @@ const bcrypt = require('bcrypt');
 const saltbcrypt = bcrypt.genSaltSync(10);
 //inisialisasi jsonwebtoken
 const jsonwebtoken = require('jsonwebtoken');
+//import file .env
+require('dotenv/config');
 
 exports.daftarakun = async function(req, res){
     //inisialisasi username dan password dari inputan request
@@ -50,7 +52,7 @@ exports.masuk = async function(req, res){
             const datatoken = {
                 idakun: dataakun._id
             };
-            const token = await jsonwebtoken.sign(datatoken, "12345678");
+            const token = await jsonwebtoken.sign(datatoken, process.env.JWT_TOKEN);
             return res.status(201).json({
                 STATUS: "BERHASIL",
                 KETERANGAN: "Berhasil Masuk",
